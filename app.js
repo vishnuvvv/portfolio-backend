@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
+import projectRouter from "./routes/projectRoute";
+import skillRouter from "./routes/skillRoute";
 
 dotenv.config();
 
@@ -12,6 +14,10 @@ const DB_URI = process.env.DB;
 // Middlewares
 app.use(express.json());
 app.use(cors());
+
+//Routes
+app.use("/api/projects", projectRouter);
+app.use("/api/skills", skillRouter);
 
 const startServer = async () => {
   try {
