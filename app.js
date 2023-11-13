@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const DB_URI = process.env.DB;
+
 
 // Middlewares
 app.use(express.json());
@@ -22,7 +22,7 @@ app.use("/api/skills", skillRouter);
 const startServer = async () => {
   try {
     // Connect to MongoDB
-    await mongoose.connect(DB_URI, {
+    await mongoose.connect(DB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
