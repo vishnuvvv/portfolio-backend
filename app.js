@@ -22,7 +22,7 @@ app.use("/api/skills", skillRouter);
 const startServer = async () => {
   try {
     // Connect to MongoDB
-    await mongoose.connect(DB, {
+    await mongoose.connect(process.env.DB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
